@@ -1,6 +1,8 @@
-# League of Legends AI Coach
+# Flash Coach
 
-A Node.js CLI tool that acts as your personal League of Legends coach. It fetches your recent match history using the Riot Games API, compacts the data, and uses Google's Gemini 3 Flash AI to analyze your performance, playstyle, and suggest improvements.
+> "Flash Coach" – because it uses **Gemini Flash** and your flash might be on the wrong key!
+
+**Flash Coach** is a Node.js CLI tool that acts as your personal League of Legends coach. It fetches your recent match history using the Riot Games API, compacts the data, and uses Google's Gemini 3 Flash AI to analyze your performance, playstyle, and suggest improvements.
 
 ## Features
 

@@ -29,7 +29,7 @@ const askQuestion = (query: string): Promise<string> => {
 };
 
 async function main() {
-    console.log('--- League of Legends AI Coach ---');
+    console.log('--- Flash Coach (Powered by Gemini) ---');
 
     try {
         const gameName = await askQuestion('Enter your Riot Game Name (e.g. MyName): ');
