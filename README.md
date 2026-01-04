@@ -6,7 +6,7 @@
 
 ## Features
 
--   **Match Analysis**: Fetches your last 10 matches.
+-   **Match Analysis**: Fetches your last 30 matches.
 -   **AI Coaching**: Generates a personalized "Coaching Report" using Gemini AI.
 -   **Playstyle Profiling**: Identifies if you are an "Aggressive Lane Bully", "Passive Scaler", etc.
 -   **Champion Suggestions**: Recommends champions based on your actual performance.

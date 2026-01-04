@@ -46,8 +46,8 @@ async function main() {
         const player = await riotService.getPlayerPuuid(gameName, tagLine, region);
         console.log(`Found PUUID: ${player.puuid}`);
 
-        console.log('Fetching last 10 matches...');
-        const matchIds = await riotService.getLastMatches(player.puuid, region, 10);
+        console.log('Fetching last 30 matches...');
+        const matchIds = await riotService.getLastMatches(player.puuid, region, 30);
 
         console.log(`Found ${matchIds.length} matches. Processing details...`);
 
