@@ -45,15 +45,18 @@ export class GeminiService {
       
       The matches are provided in chronological order (Index 0 = Most Recent, Index ${matches.length - 1} = Oldest).
 
+      Here is the match data:
+      ${JSON.stringify(matches, null, 2)}
+
       Based on this data, please provide the following:
 
       1. **Playstyle Ecosystem**:
          *   Analyze the player's core identity (e.g., "Roamer", "Duelist").
 
-      2. **Role & Champion Pool Recommendations**:
-         *   Suggest **2 Best Roles** for this player based on their stats.
-         *   For *each* role, suggest **3 Champions** (1 Main, 1 Alternative, 1 Autofill/Safe Pick).
-         *   Explain why these champions fit their identified playstyle.
+      2. **Full Role Analysis & Autofill Guide**:
+         *   Based on their mechanics, suggest **3 suitable champions** for *EVERY* role (Top, Jungle, Mid, Bot/ADC/APC, Support).
+         *   Format: "Role: Main Pick, Alt Pick, Safe Pick".
+         *   Briefly explain why these fit their playstyle (e.g., "Since you play Mages mid, play Zyra support").
 
       3. **Strategic Strengths & Weaknesses**:
          *   **Strengths**: Highlight 2 major assets (e.g. high vision control, great teamfighting).
