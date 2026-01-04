@@ -43,13 +43,31 @@ export class GeminiService {
         const prompt = `
       You are an expert League of Legends coach. I will provide you with data from the last ${matches.length} matches of a player.
       
-      Here is the match data:
-      ${JSON.stringify(matches, null, 2)}
+      The matches are provided in chronological order (Index 0 = Most Recent, Index ${matches.length - 1} = Oldest).
 
       Based on this data, please provide the following:
-      1. **Playstyle Profile**: Analyze the player's mechanical performance and playstyle patterns (e.g., "Aggressive Lane Bully", "Passive Scaler", "Roamer").
-      2. **Champion Recommendations**: Suggest 2 champions they should learn next that fit their proven skill level and playstyle. Explain why.
-      3. **Improvement Tip**: Give one specific, actionable "educational" tip to improve their consistency based on the provided stats (e.g. low CS, high deaths, low vision score).
+
+      1. **Playstyle Ecosystem**:
+         *   Analyze the player's core identity (e.g., "Roamer", "Duelist").
+
+      2. **Role & Champion Pool Recommendations**:
+         *   Suggest **2 Best Roles** for this player based on their stats.
+         *   For *each* role, suggest **3 Champions** (1 Main, 1 Alternative, 1 Autofill/Safe Pick).
+         *   Explain why these champions fit their identified playstyle.
+
+      3. **Strategic Strengths & Weaknesses**:
+         *   **Strengths**: Highlight 2 major assets (e.g. high vision control, great teamfighting).
+         *   **Weaknesses**: Highlight 2 major flaws (e.g. low CS@10, poor objective setups).
+
+      4. **Trend Analysis (5-Match Chunks)**:
+         *   Analyze the player's performance in chunks of 5 games (e.g., Matches 1-5, 6-10, etc.).
+         *   Identify if they are **Improving**, **Regressing**, or **Stagnating**.
+         *   Highlight specific stats that changed between chunks (e.g., "CS/min dropped in the last 5 games").
+
+      5. **Improvement Plan (3-Step Guide)**:
+         *   **Laning Phase**: Specific tip for early game (based on 'laning' stats).
+         *   **Macro Decision**: Specific tip for mid/late game (based on 'objectives' & 'combat').
+         *   **Consistency**: Specific tip to reduce variance (based on trend analysis).
 
       Format your response clearly with headings.
     `;

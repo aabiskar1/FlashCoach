@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import fs from 'fs/promises';
 import readline from 'readline';
 import { RiotService } from './services/riot.js';
 import { CompactorService } from './services/compactor.js';
@@ -72,6 +73,20 @@ async function main() {
         console.log('--- COACHING REPORT ---');
         console.log(coachingAdvice);
         console.log('-----------------------');
+
+        // Export to Markdown
+        const timestamp = new Date().toISOString().replace(/:/g, '-').split('.')[0];
+        const filename = `reports/${gameName}_${timestamp}.md`;
+
+        const reportContent = `# Flash Coach Report: ${gameName}#${tagLine}\n\n**Date**: ${new Date().toLocaleString()}\n**Region**: ${region}\n\n${coachingAdvice}`;
+
+        try {
+            await fs.mkdir('reports', { recursive: true });
+            await fs.writeFile(filename, reportContent);
+            console.log(`\n✅ Report saved to: ${filename}`);
+        } catch (err) {
+            console.error('Failed to save report to file:', err);
+        }
 
     } catch (error) {
         console.error('An error occurred:', error);

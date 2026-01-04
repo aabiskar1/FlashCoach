@@ -11,7 +11,28 @@ export const CompactedMatchSchema = z.object({
     itemBuild: z.array(z.number()),
     lane: z.string(),
     role: z.string(),
-    gameDuration: z.number(), // in minutes
+    gameDuration: z.number(),
+    // Enriched Data
+    combat: z.object({
+        damageDealt: z.number(),
+        damageTaken: z.number(),
+        soloKills: z.number(),
+        multiKills: z.number(), // max multikill
+    }),
+    laning: z.object({
+        firstBlood: z.boolean(),
+        csAt10: z.number(),
+    }),
+    objectives: z.object({
+        damageToTurrets: z.number(),
+        turretKills: z.number(),
+        dragonTakedowns: z.number(),
+    }),
+    vision: z.object({
+        wardsPlaced: z.number(),
+        wardsKilled: z.number(),
+        controlWardsBought: z.number(),
+    }),
 });
 
 export type CompactedMatch = z.infer<typeof CompactedMatchSchema>;

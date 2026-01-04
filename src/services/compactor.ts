@@ -35,6 +35,27 @@ export class CompactorService {
             lane: participant.lane,
             role: participant.role,
             gameDuration: parseFloat(durationMinutes.toFixed(2)),
+            // Enriched Data Population
+            combat: {
+                damageDealt: participant.totalDamageDealtToChampions,
+                damageTaken: participant.totalDamageTaken,
+                soloKills: challenges.soloKills || 0,
+                multiKills: participant.largestMultiKill || 0,
+            },
+            laning: {
+                firstBlood: participant.firstBloodKill || false,
+                csAt10: challenges.laneMinionsFirst10Minutes || 0,
+            },
+            objectives: {
+                damageToTurrets: participant.damageDealtToTurrets || 0,
+                turretKills: participant.turretKills || 0,
+                dragonTakedowns: challenges.dragonTakedowns || 0,
+            },
+            vision: {
+                wardsPlaced: participant.wardsPlaced || 0,
+                wardsKilled: participant.wardsKilled || 0,
+                controlWardsBought: participant.visionWardsBoughtInGame || 0,
+            },
         };
     }
 }
